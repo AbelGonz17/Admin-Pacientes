@@ -1,5 +1,33 @@
-# Vue 3 + Vite
+🐾 Veterinary Admin - Vue 3 + Vite
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This project is a veterinary administration app built with Vue 3 and Vite.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+The application allows you to:
+
+Register clients through a form with their information.
+
+Save the submitted data.
+
+Display a list of registered clients along with the details they provided.
+
+🚀 Tech Stack
+
+Vue 3
+ with <script setup>
+
+Vite
+ for fast development
+
+📂 Features
+
+Client registration form.
+
+Real-time display of registered clients.
+
+Basic management of submitted information.
+
+📖 Recommended Documentation
+
+Vue <script setup>
+
+Vite Guide
