@@ -22,7 +22,7 @@ defineEmits(["actualizar-paciente", "eliminar-paciente"]);
     </p>
 
     <p class="font-bold mb-3 text-gray-700 uppercase">
-      Propietario: {{ paciente.propetario }}
+      Propietario: {{ paciente.propietario }}
       <span class="font-normal normal-case"> </span>
     </p>
 
@@ -45,7 +45,7 @@ defineEmits(["actualizar-paciente", "eliminar-paciente"]);
       <button
         type="button"
         class="block w-full py-2 px-10 bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase rounded-lg"
-        @click="$emit('actualizar-paciente')"
+        @click="$emit('actualizar-paciente',paciente.id)"
       >
         Editar
       </button>

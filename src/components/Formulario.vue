@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from "vue";
+import { computed, reactive } from "vue";
 import Alerta from "./Alerta.vue";
 
 const alerta = reactive({
@@ -9,7 +9,7 @@ const alerta = reactive({
 
 const emit = defineEmits([
   "update:nombre",
-  "update:propetario",
+  "update:propietario",
   "update:email",
   "update:alta",
   "update:sintomas",
@@ -17,11 +17,15 @@ const emit = defineEmits([
 ]);
 
 const props = defineProps({
+  id: {
+    type: [String, null],
+    requiered: true,
+  },
   nombre: {
     type: String,
     requiered: true,
   },
-  propetario: {
+  propietario: {
     type: String,
     requiered: true,
   },
@@ -49,10 +53,14 @@ const validar = () => {
   alerta.mensaje = "paciente Almanecenado Correctamente";
   alerta.tipo = "exito";
 
-    setTimeout(() => {
-        Object.assign(alerta,{tipo:'',mensaje:''})
-    }, 3000);
+  setTimeout(() => {
+    Object.assign(alerta, { tipo: "", mensaje: "" });
+  }, 3000);
 };
+
+const editando = computed(() => {
+  return props.id;
+});
 </script>
 
 <template>
@@ -83,16 +91,19 @@ const validar = () => {
       </div>
 
       <div class="mb-5">
-        <label for="propetario" class="block text-gray-700 uppercase font-bold">
-          Nombre Propetario
+        <label
+          for="propietario"
+          class="block text-gray-700 uppercase font-bold"
+        >
+          Nombre Propietario
         </label>
         <input
           id="propetario"
           type="text"
-          placeholder="Nombre del propetario "
+          placeholder="Nombre del propietario "
           class="border-2 w-full mt-2 placeholder-gray-400 rounded-md"
-          :value="propetario"
-          @input="$emit('update:propetario', $event.target.value)"
+          :value="propietario"
+          @input="$emit('update:propietario', $event.target.value)"
         />
       </div>
 
@@ -140,7 +151,7 @@ const validar = () => {
       <input
         type="submit"
         class="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-colors"
-        value="Registrar paciente"
+        :value="[editando ? 'Guardar Cambios' : 'Registrar Paciente']"
       />
     </form>
   </div>
